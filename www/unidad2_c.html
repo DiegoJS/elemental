@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+         --><meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/b4_sidebar.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Hello World</title>
+    </head>
+    <body class="animation-wallpaper">
+        <nav style="position: fixed;width: 100%;padding: 5px;" class="navbar navbar-expand-md navbar-light bg-light sidebarNavigation" data-sidebarClass="navbar-light bg-light">
+            <a href="#!" style="" class="navbar-brand" ><img src="img/minedu.png" class="img-fluid" style="    max-width: 210px;"></a>
+            <button class="navbar-toggler leftNavbarToggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="dashboard.html">Inicio
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resultados.html">Resultados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ayuda.html">Ayuda</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-6">
+                    <p>&nbps;</p>
+                    <p>&nbps;</p>
+                    <p class="text-score">Score. <span>0</span></p> 
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 col-6">
+                    <img src="img/checked.png" class="img-fluid" width="50"> &nbsp;&nbsp;<span class="score-checks">0</span>
+                </div>
+                <div class="col-md-6 col-6">
+                    <img src="img/cancel.png" class="img-fluid" width="50"> &nbsp;&nbsp;<span class="score-checks">0</span>
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-md-12">
+                    <p>&nbsp;</p>
+                    <form action="index" id="formNumberData">
+                        <div class="card card-pregunta">
+                            <div class="card-body">
+                                <H5>LISTEN: </H5>
+                                <center>
+                                    <img style="display: none;" id="image_number" src="" alt="Image" class="img-fluid" width="200">
+                                </center>
+                                <br>
+                                <div class="form-group">
+                                    <img src="img/sound.png" class="img-fluid" onclick="playAudio()" width="50">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-success btn-block btn-lg">NEXT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <p>&nbsp;</p>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/sweetalert.min.js"></script>
+        <script type="text/javascript" src="js/b4_sidebar.js"></script>
+        <script type="text/javascript" src="js/function.js"></script>
+        <script type="text/javascript">
+            var audios_data = [
+                "n.mp3", "p.mp3", "q.mp3", "r.mp3", "s.mp3", "t.mp3", "v.mp3", "w.mp3", "x.mp3", "y.mp3", "z.mp3",
+            ];
+
+            var images_data = [
+                "n.GIF", "p.GIF", "q.GIF", "r.GIF", "s.GIF", "t.GIF", "v.GIF", "w.GIF", "x.GIF", "y.GIF", "z.GIF",
+            ];
+
+            var random_number = parseInt(Math.floor(Math.random() * 10));
+            var url_audio = "file:///android_asset/www/resources/activity_three/Escuchar/audios/";
+            var url_image = "resources/activity_three/Escuchar/abecedario/";
+            
+            $("#image_number").attr('src', url_image+images_data[random_number]);
+            $("#image_number").show();
+            
+            var completed = false;
+            function playAudio() {
+                
+                var src = url_audio+audios_data[random_number];
+                
+                var my_media = new Media(src, function(){
+                    completed = true;
+                    console.log('final');
+                },
+                function(){
+                    console.log('error');
+                });
+                my_media.play();
+            }
+            $(document).on('submit', '#formNumberData', function(event) {
+                event.preventDefault();
+                if (completed) {
+                    swal("Good", "Good job", "success");
+                }
+                else{
+                    swal("Error", "", "error");
+                }
+                setTimeout(function(){
+                    location.href = "unidad2_d.html";
+                }, 1000);
+            });
+        </script>
+    </body>
+</html>

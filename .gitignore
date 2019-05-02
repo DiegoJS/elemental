@@ -1,0 +1,37 @@
+# Android
+platforms/android/
+platforms/android/assets/www
+platforms/android/bin/
+platforms/android/gen/
+platforms/android/res/xml/config.xml
+
+# iOS
+platforms/ios/
+platforms/ios/build/
+platforms/ios/CordovaLib/build/
+platforms/ios/www
+platforms/ios/MyPace/config.xml
+platforms/ios/.staging
+
+# Browser
+
+/platforms/browser/
+
+# Emulator logs
+platforms/ios/cordova/console.log
+
+/node_modules/
+/hooks/
+/plugins/
+
+*.apk
+*.png
+*.jpg
+*.gif
+*.jpeg
+*.mp3
+*.mp4
+*.doc
+*.docx
+*.xls
+*.xlsx

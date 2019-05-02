@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+         -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>Hello World</title>
+</head>
+
+<body class="animation-wallpaper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12" style="padding:0px;">
+                <img src="img/minedu.png" class="img-fluid" alt="">
+                <p>&nbsp;</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <H3 align="center" class="text-score">REGISTRO</H3>
+                <br>
+            </div>
+            <div class="col-md-12 col-xs-12">
+                <form action="#" id="formRegistro">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="nombre">Nombre:</label>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" id="nombre" name="nombre" class="form-control form-control-lg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="apellido">Apellido:</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" id="apellido" name="apellido" class="form-control form-control-lg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="edad">Edad:</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <select name="edad" id="edad" class="form-control form-control-lg">
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="nombre">Grado:</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <select name="grado" id="grado" class="form-control form-control-lg">
+                                    <option value="2">2° Grado</option>
+                                    <option value="3">3° Grado</option>
+                                    <option value="4">4° Grado</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="nombre">Genero:</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <select class="form-control form-control-lg" id="genero" name="genero">
+                                    <option value="1">Niño</option>
+                                    <option value="2">Niña</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="nombre">Usuario:</label>
+                        </div>
+                        <div class="col-9">
+                            <div class="form-group">
+                                <input type="text" id="usuario" name="usuario" class="form-control form-control-lg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group" align="center">
+                                <!-- <button type="submit" class="btn btn-success btn-block btn-lg">REGISTRARME</button> -->
+                                <img id="btnSendForm" src="img/checked.png" style="background:#fff;border-radius:50%;" width="50" alt="">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group" align="center">
+                                <a href="index.html">
+                                    <img src="img/cancel.png" style="background:#fff;border-radius:50%;" width="50" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/function.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            console.log(device.cordova);
+        }
+
+        $(function () {
+
+            var registrado = localStorage.getItem('nombre');
+            if (registrado === null) {
+                $("#formRegistro").fadeIn();
+            }
+            else {
+                window.location.href = 'dashboard.html';
+            }
+
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+         -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <meta charset="utf-8">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/b4_sidebar.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>Hello World</title>
+    </head>
+    <body class="animation-wallpaper">
+        <nav style="position: fixed;width: 100%;padding: 5px;" class="navbar navbar-expand-md navbar-light bg-light sidebarNavigation" data-sidebarClass="navbar-light bg-light">
+            <a href="#!" style="width: 100%;display: block;" align="center" class="navbar-brand" ><img src="img/minedu.png" class="img-fluid" style="max-width: 210px;"></a>
+        </nav>
+        <div id="img-splash">
+            <img src="img/minedu.png" class="img-fluid img-minedu-lg" alt="">
+            <img src="img/play-button.png" class="img-fluid img-play-button">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-xs-12" style="margin-top: 40%;">
+                    <h3 align="center" class="text-score">WELCOME</h3>
+                    <br>
+                    <form id="sendMEssage" action="#" style="display:none;" id="formRegistro">
+                        <div class="input-group mb-3">
+                            <input type="text" id="username_login" name="usuario" class="form-control form-control-lg" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-success btn-lg" type="submit">Entrar</button>
+                            </div>
+                        </div>
+                    </form>
+                    <p>&nbsp;</p>
+                    <div class="form-group" align="center">
+                        <a href="registro.html">
+                            <img src="img/add-user.png" alt="create user" class="img-fluid" width="80">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/sweetalert.min.js"></script>        
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/b4_sidebar.js"></script>
+        <script type="text/javascript" src="js/function.js"></script>
+        <script type="text/javascript">
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                console.log(device.cordova);
+            }
+
+            $(function(){
+                var registrado = localStorage.getItem('nombre');
+                if(registrado === null){
+                    $("#formRegistro").fadeIn();
+                }
+                else{
+                    window.location.href = 'dashboard.html';
+                }
+            });
+
+            $(document).on("click","#img-splash",function(e){
+                e.preventDefault();
+                $(this).fadeOut();
+                $("#sendMEssage").show();
+            })
+        </script>
+    </body>
+</html>
